@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<tXML>
+	<Header>
+		<Company>8840</Company>
+	</Header>
+	<Message>
+		<Response OrderDate = "2016-03-03" OrderNumber = "100102" RequestType = "QUOTATION">
+			<SubTotal>30.66</SubTotal>
+			<TotalTax>2.45</TotalTax>
+			<Total>33.11</Total>
+			<LineItem LineItemNumber = "1" OrderLineDate = "2016-03-03 09:12">
+				<Item>1001011</Item>
+				<ProductClass>Merch</ProductClass>
+				<OUOM>PC</OUOM>
+				<Quantity>3</Quantity>
+				<UnitPrice>10.22</UnitPrice>
+				<ExtendedPrice>30.66</ExtendedPrice>
+				<Tax jurisdictionName = "NT01" taxCategory = "NN" taxName = "something" taxRate = "8" taxResult = "approved" taxType = "01" taxableAmount = "2.43">2.45</Tax>
+				<ShipTo>
+					<StreetAddress1>118 N Clark St</StreetAddress1>
+					<StreetAddress2>Suite 100</StreetAddress2>
+					<City>Chicago</City>
+					<State>IL</State>
+					<County/>
+					<PostalCode>60602</PostalCode>
+					<Country>US</Country>
+				</ShipTo>
+				<ShipFrom>
+					<StreetAddress1>45 Fremont Street</StreetAddress1>
+					<StreetAddress2/>
+					<StreetAddress3/>
+					<City>San Francisco</City>
+					<State>CA</State>
+					<County/>
+					<PostalCode>86067</PostalCode>
+					<Country>US</Country>
+				</ShipFrom>
+			</LineItem>
+		</Response>
+	</Message>
+</tXML>

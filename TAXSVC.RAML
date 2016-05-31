@@ -1,0 +1,90 @@
+#%RAML 0.8
+title: PETM Tax Service
+version: v1
+#baseUri: https://petm-dev-tax-svc.cloudhub.io/tax-svc/v1
+baseUri: http://mocksvc.mulesoft.com/mocks/5ac5235f-cb7b-47b5-85fd-ca0e8329353a/tax-svc/v1
+#documentation:
+#  - title: Description of Tax Services
+#    content: |
+#      The Tax Service is used to obtain Tax estimations for an Order.
+#            
+#      The data will be returned XML.  The default is #XML.
+securitySchemes:
+  - client-credentials:
+      type: x-client-credentials
+      description: Use application client_id and secret assigned by API adminstrator.
+traits:
+  -  content-type-required::
+      headers:
+        content-type:
+          type: string
+          example: application/xml
+  -  accept-required:
+      headers:
+        accept:
+          type: string
+          example: application/xml
+  -  client-credentials-required:
+      headers:
+        client_id:
+          type: string
+          example: 7b404180fbb84b099179a4126a9576ff
+        client_secret:
+          type: string
+          example: e241f4aa3eca4b2a8FA67A2FEF5754F8
+  -  standard-error-responses:
+      responses:
+        400:
+          description:
+            The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+          body:
+            application/json:
+        401:
+          description:
+            The server cannot authenticate the supplied credentials.
+          body:
+            application/json:
+        404:
+          description:
+            The server cannot find the requested resource.
+          body:
+            application/json:
+        405:
+          description:
+            A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource.
+          body:
+            application/json: 
+        406:
+          description:
+            A request was made that could not be accepted due to missing or incorrect data or request parameters.
+          body:
+            application/json: 
+        415:
+          description:
+            The accept header specified an unsupported media type.
+          body:
+            application/json: 
+        500:
+          description:
+            That went badly, check to see if there is an x-implementation-status-code header value returned from the API implementation.
+          body:
+            application/json:
+                 
+/tax_request:
+  description: Order oriented format for request of tax calculation.
+#  securedBy: [client-credentials]
+  post:
+    is: [client-credentials-required,standard-error-responses]
+    body:
+      application/xml:
+        schema: !include schemas/gettax-request-schema.xsd
+        example: !include examples/gettax-request.xml
+      #application/json:
+       # schema: !include schemas/availabilitycheck-request-schema.json
+       # example: !include examples/availabilitycheck-request.json
+    responses:
+      200:
+        body:
+          application/xml:
+            schema: !include schemas/gettax-response-schema.xsd
+            example: !include examples/gettax-response.xml

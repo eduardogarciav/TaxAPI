@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<tXML>
+	<Header>
+		<Source>Host</Source>
+		<Action_Type>Get Quotation</Action_Type>
+		<Message_Type>Tax</Message_Type>
+		<Company_ID>8840</Company_ID>
+	</Header>
+	<Message>
+		<Request OrderDate = "2016-03-03 09:12" OrderModifiedDate = "2016-03-03 09:12" OrderNumber = "100102" RequestType = "QUOTATION">
+			<Customer>
+				<CustomerCode/>
+			</Customer>
+			<LineItem DocDate = "2016-03-03 09:12" LineItemNumber = "1" OrderLineDate = "2016-03-03 09:12" TaxCode = "PC030147">
+				<Item>1001011</Item>
+				<ProductClass>Merch</ProductClass>
+				<OUOM>PC</OUOM>
+				<Quantity>3</Quantity>
+				<UnitPrice>10.22</UnitPrice>
+				<ShipTo>
+					<StreetAddress1>118 N Clark St</StreetAddress1>
+					<StreetAddress2>Suite 100</StreetAddress2>
+					<City>Chicago</City>
+					<State>IL</State>
+					<County/>
+					<PostalCode>60602</PostalCode>
+					<Country>US</Country>
+				</ShipTo>
+				<ShipFrom>
+					<StreetAddress1>45 Fremont Street</StreetAddress1>
+					<StreetAddress2/>
+					<StreetAddress3/>
+					<City>San Francisco</City>
+					<State>CA</State>
+					<County/>
+					<PostalCode>86067</PostalCode>
+					<Country>US</Country>
+				</ShipFrom>
+			</LineItem>
+		</Request>
+	</Message>
+</tXML>
